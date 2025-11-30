@@ -1,7 +1,7 @@
 ﻿use ExamPlannerDB;
 
 create table Teachers (
-	TeacherID int primary key auto_increment ID,
+	TeacherID int primary key identity(1,1) not null,
 	FirstName varchar(50) not null,
 	LastName varchar(50) not null,
 	Initials varchar(5) not null,
@@ -9,7 +9,7 @@ create table Teachers (
 );
 
 create table Exams (
-	ExamID int primary key auto_increment ID,
+	ExamID int primary key identity(1,1) not null,
 	ExamName varchar(100) not null,
 	ExamDate date not null,
 	StartTime time not null,
@@ -19,20 +19,21 @@ create table Exams (
 	Supervision boolean not null,
 	TypeOfSupervisor varchar(50) not null,
 	ExamSubmissionDate date not null,
-	ReExamSubmissionDate date,
-	ReExamDate date,
-	ReExamStartTime time,
-	ReExamEndTime time
+	ReExamSubmissionDate date not null,
+	ReExamDate date not null,
+	ReExamStartTime time not null,
+	ReExamEndTime time not null
+
 );
 
 create table Designations (
-	DesignationID int primary key auto_increment ID,
+	DesignationID int primary key identity(1,1) not null,
 	TeacherID int foreign key references Teachers(TeacherID),
 	ExamId int foreign key references Exams(ExamID),
 	DesignationRole varchar(100) not null
 );
 
 create table Classes (
-	ClassID int primary key auto_increment ID,
+	ClassID int primary key identity(1,1) not null,
 	ClassName varchar(100) not null
 );
