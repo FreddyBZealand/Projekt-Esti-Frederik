@@ -1,9 +1,10 @@
 ﻿use ExamPlannerDB;
 
-drop table if exists Teachers;
-drop table if exists Classes;
+
+drop table if exists Designations
 drop table if exists Exams;
-drop table if exists Designations;
+drop table if exists Classes;
+drop table if exists Teachers;
 
 create table Teachers (
 	TeacherID int primary key identity(1,1) not null,
