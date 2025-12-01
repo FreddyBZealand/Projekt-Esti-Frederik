@@ -21,7 +21,7 @@ create table Classes (
 
 create table Exams (
 	ExamID int primary key identity(1,1) not null,
-	ClassID int foreign key references Classes(ClassID),
+	ClassID int foreign key references Classes(ClassID) not null,
 	ExamName varchar(100) not null,	
 	EstimatedNumberStudents int not null,
 	TypeOfExam varchar(1) not null, -- 'E'(External) or 'I'(Internal)
