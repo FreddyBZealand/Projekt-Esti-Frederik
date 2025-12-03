@@ -14,7 +14,7 @@ namespace Projekt_Esti_Frederik.Service
         {
             throw new NotImplementedException();
         }
-        .
+        
         public IEnumerable<Teacher> GetTeacher()
         {
             throw new NotImplementedException();
