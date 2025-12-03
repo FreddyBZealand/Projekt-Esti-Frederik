@@ -46,7 +46,7 @@ create table Exams (
 
 create table Designations (
 	DesignationID int primary key identity(1,1) not null,
-	TeacherID int foreign key references Teachers(TeacherID),
-	ExamId int foreign key references Exams(ExamID),
+	TeacherID int foreign key references Teachers(TeacherID) not null,
+	ExamId int foreign key references Exams(ExamID) not null,
 	DesignationRole varchar(100) not null
 );
