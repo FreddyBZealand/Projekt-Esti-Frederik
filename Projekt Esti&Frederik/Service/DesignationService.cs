@@ -5,34 +5,55 @@ namespace Projekt_Esti_Frederik.Service
 {
     public class DesignationService : IDesignationService
     {
+        ExamPlannerDBContext context;
         public void AddDesignation(Designation designation)
         {
-            throw new NotImplementedException();
+            context.Designations.Add(designation);
+            context.SaveChanges();
         }
 
         public void DeleteDesignation(int designationId)
         {
-            throw new NotImplementedException();
+            var existing = context.Designations.Find(designationId);
+
+            if (existing == null)
+                throw new KeyNotFoundException($"Designation with ID {designationId} not found.");
+
+            context.Designations.Remove(existing);
+            context.SaveChanges();
         }
 
         public IEnumerable<Designation> GetDesignation()
         {
-            throw new NotImplementedException();
+            return context.Designations.ToList();
         }
 
         public IEnumerable<Designation> GetDesignationStudent(int StudentId)
         {
-            throw new NotImplementedException();
+            return context.Designations
+            .Where(d => d.StudentId == studentId)
+            .ToList();
         }
 
         public IEnumerable<Designation> GetDesignationTeacher(int TeacherId)
         {
-            throw new NotImplementedException();
+            return context.Designations
+            .Where(d => d.TeacherId == teacherId)
+            .ToList();
         }
 
         public void UpdateDesignation(Designation designation)
         {
-            throw new NotImplementedException();
+            var existing = context.Designations.Find(designation.DesignationId);
+
+            if (existing == null)
+                throw new KeyNotFoundException(
+                    $"Designation with ID {designation.DesignationId} not found."
+                );
+
+            context.Entry(existing).CurrentValues.SetValues(designation);
+            context.SaveChanges();
         }
     }
 }
+

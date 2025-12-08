@@ -21,7 +21,7 @@ create table Classes (
 
 create table Exams (
 	ExamID int primary key identity(1,1) not null,
-	ClassID int foreign key references Classes(ClassID),
+	ClassID int foreign key references Classes(ClassID) not null,
 	ExamName varchar(100) not null,	
 	EstimatedNumberStudents int not null,
 	TypeOfExam varchar(1) not null, -- 'E'(External) or 'I'(Internal)
@@ -46,7 +46,7 @@ create table Exams (
 
 create table Designations (
 	DesignationID int primary key identity(1,1) not null,
-	TeacherID int foreign key references Teachers(TeacherID),
-	ExamId int foreign key references Exams(ExamID),
+	TeacherID int foreign key references Teachers(TeacherID) not null,
+	ExamId int foreign key references Exams(ExamID) not null,
 	DesignationRole varchar(100) not null
 );
