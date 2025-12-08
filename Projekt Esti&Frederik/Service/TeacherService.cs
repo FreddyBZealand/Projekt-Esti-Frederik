@@ -5,34 +5,62 @@ namespace Projekt_Esti_Frederik.Service
 {
     public class TeacherService : ITeacherService
     {
+         private readonly ExamPlannerDBContext context;
         public void AddTeacher(Teacher teacher)
         {
-            throw new NotImplementedException();
+            context.Teachers.Add(teacher);
+            context.SaveChanges();
         }
 
         public void DeleteTeacher(int teacherId)
         {
-            throw new NotImplementedException();
+            var existing = context.Teachers.Find(teacherId);
+
+            if (existing == null)
+                throw new KeyNotFoundException($"Teacher with ID {teacherId} not found.");
+
+            context.Teachers.Remove(existing);
+            context.SaveChanges();
         }
-        .
+        
         public IEnumerable<Teacher> GetTeacher()
         {
-            throw new NotImplementedException();
+            return context.Teachers.ToList();
         }
 
         public IEnumerable<Teacher> GetTeacherByClassId(int classId)
         {
-            throw new NotImplementedException();
+            return context.Classes
+            .Where(c => c.ClassId == classId)
+            .Join(
+                context.Teachers,
+                c => c.TeacherId,
+                t => t.TeacherId,
+                (c, t) => t)
+            .ToList();
         }
 
         public IEnumerable<Teacher> GetTeacherByDesignationId(int designationId)
         {
-            throw new NotImplementedException();
+            return context.Designations
+          .Where(d => d.DesignationId == designationId)
+          .Join(
+              context.Teachers,
+              d => d.TeacherId,
+              t => t.TeacherId,
+              (d, t) => t)
+          .ToList();
         }
 
         public void UpdateTeacher(Teacher teacher)
         {
-            throw new NotImplementedException();
+            var existing = context.Teachers.Find(teacher.TeacherId);
+
+            if (existing == null)
+                throw new KeyNotFoundException($"Teacher with ID {teacher.TeacherId} not found.");
+
+            context.Entry(existing).CurrentValues.SetValues(teacher);
+            context.SaveChanges();
         }
     }
 }
