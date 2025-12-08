@@ -19,6 +19,8 @@ public partial class Designation
 
     public int? ExamId { get; set; }
 
+    public int StudentId { get; set; }
+
     [Required]
     [StringLength(100)]
     [Unicode(false)]

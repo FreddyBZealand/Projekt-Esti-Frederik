@@ -17,6 +17,8 @@ public partial class Exam
     [Column("ClassID")]
     public int? ClassId { get; set; }
 
+
+    public int DesignationId {  get; set; } 
     [Required]
     [StringLength(100)]
     [Unicode(false)]
