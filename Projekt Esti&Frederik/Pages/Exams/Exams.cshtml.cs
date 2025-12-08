@@ -7,8 +7,6 @@ namespace Projekt_Esti_Frederik.Pages.Exams
 {
     public class ExamModel : PageModel
     {
-        public Exam exam { get; set; }
-
         public IEnumerable<Exam> examService { get; set; }
         private IExamService context;
 
