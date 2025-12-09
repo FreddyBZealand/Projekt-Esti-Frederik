@@ -8,7 +8,29 @@
 <table class="table">
     <thead>
         <tr>
+            <th>Class id</th>
             <th>Class name</th>            
         </tr>
     </thead>
+
+    <tbody>
+
+        @if (Model != null)
+        {
+            @foreach (var item in Model.classService)
+            {
+                <tr>
+                    <td> @item.ClassId </td>
+                    <td> @item.ClassName </td>
+                    <td>
+                        <p>
+                            <a asp-page="/Exams/Exams" asp-route-id="@item.ClassId">Show exams</a>
+                        </p>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
 </table>
+
+@* I need to correct this i did Classes as class subject, an i should have done Classes as class group. *@

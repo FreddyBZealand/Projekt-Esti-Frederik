@@ -15,7 +15,7 @@ namespace Projekt_Esti_Frederik
             builder.Services.AddDbContext<ExamPlannerDBContext>();
 
             // True for real services, false for test stubs
-            if (false)
+            if (true)
             {
                 builder.Services.AddTransient<IClassService, ClassService>();
                 builder.Services.AddTransient<IExamService, ExamService>();

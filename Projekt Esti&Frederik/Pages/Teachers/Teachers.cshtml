@@ -14,4 +14,26 @@
             <th>Email</th>
         </tr>
     </thead>
+
+    <tbody>
+
+        @if (Model != null)
+        {
+            @foreach (var item in Model.teacherService)
+            {
+                <tr>
+                    <td> @item.TeacherId</td>
+                    <td> @item.FirstName</td>
+                    <td> @item.LastName</td>
+                    <td> @item.Initials</td>
+                    <td> @item.Email</td>
+                    <td>
+                        <p>
+                            <a asp-page="/Exams/Exams" asp-route-id="@item.TeacherId">Show exams</a>
+                        </p>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
 </table>
