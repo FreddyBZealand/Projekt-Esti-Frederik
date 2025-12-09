@@ -6,7 +6,7 @@ namespace Projekt_Esti_Frederik.Service.Interface
     {
         IEnumerable<Exam> GetExam();
         IEnumerable<Exam> GetExamByClassId(int classId);
-        IEnumerable<Exam> GetExamByDesignationId(int designationId);
+        //IEnumerable<Exam> GetExamByDesignationId(int designationId);
 
         void AddExam(Exam exam);
         void UpdateExam(Exam exam);

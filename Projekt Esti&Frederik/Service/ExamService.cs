@@ -41,12 +41,14 @@ namespace Projekt_Esti_Frederik.Service
             .ToList();
         }
 
-        public IEnumerable<Exam> GetExamByDesignationId(int designationId)
-        {
-            return context.Exams
-           .Where(e => e.DesignationId == designationId)
-           .ToList();
-        }
+
+        //We made a mistake, because there can be multiple designations for one exam, it is not possible to get exam by designation id, because the exam table does not have designation id as foreign key
+        //public IEnumerable<Exam> GetExamByDesignationId(int designationId)
+        //{
+        //    return context.Exams
+        //   .Where(e => e.DesignationId == designationId)
+        //   .ToList();
+        //}
 
         public void UpdateExam(Exam exam)
         {

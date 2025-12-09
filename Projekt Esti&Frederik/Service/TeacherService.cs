@@ -28,17 +28,18 @@ namespace Projekt_Esti_Frederik.Service
             return context.Teachers.ToList();
         }
 
-        public IEnumerable<Teacher> GetTeacherByClassId(int classId)
-        {
-            return context.Classes
-            .Where(c => c.ClassId == classId)
-            .Join(
-                context.Teachers,
-                c => c.TeacherId,
-                t => t.TeacherId,
-                (c, t) => t)
-            .ToList();
-        }
+        //We made a mistake, there is no reference between Class and Teacher, a teacher is not even assigned to a class but only to one to several exams.
+        //public IEnumerable<Teacher> GetTeacherByClassId(int classId)
+        //{
+        //    return context.Classes
+        //    .Where(c => c.ClassId == classId)
+        //    .Join(
+        //        context.Teachers,
+        //        c => c.TeacherId,
+        //        t => t.TeacherId,
+        //        (c, t) => t)
+        //    .ToList();
+        //}
 
         public IEnumerable<Teacher> GetTeacherByDesignationId(int designationId)
         {

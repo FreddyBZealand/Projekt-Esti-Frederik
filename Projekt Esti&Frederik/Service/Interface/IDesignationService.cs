@@ -5,7 +5,10 @@ namespace Projekt_Esti_Frederik.Service.Interface
     public interface IDesignationService
     {
         IEnumerable<Designation> GetDesignation();
-        IEnumerable<Designation> GetDesignationStudent(int StudentId);
+
+
+        //Designation can only be feteched by TeacherId or ExamId. we made a mistake :)
+        //IEnumerable<Designation> GetDesignationStudent(int StudentId);
         IEnumerable<Designation> GetDesignationTeacher(int TeacherId);
 
         void AddDesignation(Designation designation);
