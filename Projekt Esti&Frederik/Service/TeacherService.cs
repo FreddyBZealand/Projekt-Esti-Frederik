@@ -6,6 +6,13 @@ namespace Projekt_Esti_Frederik.Service
     public class TeacherService : ITeacherService
     {
          private readonly ExamPlannerDBContext context;
+
+        //Whas missing this construkter
+        public TeacherService(ExamPlannerDBContext context) 
+        { 
+        this.context = context;
+        }
+
         public void AddTeacher(Teacher teacher)
         {
             context.Teachers.Add(teacher);
@@ -22,7 +29,7 @@ namespace Projekt_Esti_Frederik.Service
             context.Teachers.Remove(existing);
             context.SaveChanges();
         }
-        
+
         public IEnumerable<Teacher> GetTeacher()
         {
             return context.Teachers.ToList();

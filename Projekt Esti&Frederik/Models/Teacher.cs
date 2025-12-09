@@ -16,7 +16,7 @@ public partial class Teacher
     public int TeacherId { get; set; }
 
     [Required]
-    [StringLength(100)]
+    [StringLength(50)]
     [Unicode(false)]
     public string FirstName { get; set; }
 
