@@ -13,18 +13,20 @@ public partial class Class
     [Key]
     [Column("ClassID")]
     public int ClassId { get; set; }
-    public int TeacherId { get; set; }  
+
+    //Not a part of requirements.
+    //public int TeacherId { get; set; }  
     [Required]
     [StringLength(100)]
     [Unicode(false)]
     public string ClassName { get; set; }
 
+    //Not a part of requirements.
+    //[ForeignKey("TeacherId")]
+    //[InverseProperty("Classes")]
+    //public virtual Teacher Teacher { get; set; }
 
-    [ForeignKey("TeacherId")]
-    [InverseProperty("Classes")]
-    public virtual Teacher Teacher { get; set; }
-
-    [InverseProperty("Classes")]
-    public virtual ICollection<Student> Students { get; set; } = new List<Student>();
+    //[InverseProperty("Classes")]
+    //public virtual ICollection<Student> Students { get; set; } = new List<Student>();
     public virtual ICollection<Exam> Exams { get; set; } = new List<Exam>();
 }

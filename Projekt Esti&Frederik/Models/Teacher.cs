@@ -35,11 +35,6 @@ public partial class Teacher
     [Unicode(false)]
     public string Email { get; set; }
     
-    // One teacher > many classes
-    [InverseProperty("Teacher")]
-    public virtual ICollection<Class> Classes { get; set; } = new List<Class>();
-
-    // One teacher > many designations
     [InverseProperty("Teacher")]
     public virtual ICollection<Designation> Designations { get; set; } = new List<Designation>();
 }

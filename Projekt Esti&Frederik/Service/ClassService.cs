@@ -33,19 +33,19 @@ namespace Projekt_Esti_Frederik.Service
             return context.Classes.ToList();
         }
 
-        public IEnumerable<Class> GetClassByStudentId(int studentId)
-        {
-            return context.Classes
-                .Where(c => c.Students.Any(s => s.StudentId == studentId))
-            .ToList();
-        }
-
-        public IEnumerable<Class> GetClassByTeacherId(int teacherId)
-        {
-            return context.Classes
-          .Where(c => c.TeacherId == teacherId)
-          .ToList();
-        }
+        //We should not have students according to requirements
+        //public IEnumerable<Class> GetClassByStudentId(int studentId)
+        //{
+        //    return context.Classes
+        //        .Where(c => c.Students.Any(s => s.StudentId == studentId))
+        //    .ToList();
+        //}
+        //public IEnumerable<Class> GetClassByTeacherId(int teacherId)
+        //{
+        //    return context.Classes
+        //  .Where(c => c.TeacherId == teacherId)
+        //  .ToList();
+        //}
 
         public void UpdateClass(Class theClass)
         {

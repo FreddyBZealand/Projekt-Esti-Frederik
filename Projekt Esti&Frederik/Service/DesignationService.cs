@@ -28,12 +28,12 @@ namespace Projekt_Esti_Frederik.Service
             return context.Designations.ToList();
         }
 
-        public IEnumerable<Designation> GetDesignationStudent(int studentId)
-        {
-            return context.Designations
-            .Where(d => d.StudentId == studentId)
-            .ToList();
-        }
+        //public IEnumerable<Designation> GetDesignationStudent(int StudentId)
+        //{
+        //    return context.Designations
+        //    .Where(d => d.StudentId == studentId)
+        //    .ToList();
+        //}
 
         public IEnumerable<Designation> GetDesignationTeacher(int teacherId)
         {

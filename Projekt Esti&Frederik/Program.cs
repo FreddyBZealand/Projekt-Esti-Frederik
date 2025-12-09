@@ -1,3 +1,7 @@
+using Projekt_Esti_Frederik.Models;
+using Projekt_Esti_Frederik.Service;
+using Projekt_Esti_Frederik.Service.Interface;
+
 namespace Projekt_Esti_Frederik
 {
     public class Program
@@ -8,6 +12,24 @@ namespace Projekt_Esti_Frederik
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.AddDbContext<ExamPlannerDBContext>();
+
+            // True for real services, false for test stubs
+            if (false)
+            {
+                builder.Services.AddTransient<IClassService, ClassService>();
+                builder.Services.AddTransient<IExamService, ExamService>();
+                builder.Services.AddTransient<IDesignationService, DesignationService>();
+                builder.Services.AddTransient<ITeacherService, TeacherService>();
+            }
+            else
+            {
+                builder.Services.AddTransient<IClassService, ClassServiceTestStub>();
+                builder.Services.AddTransient<IExamService, ExamServiceTestStub>();
+                builder.Services.AddTransient<IDesignationService, DesignationServiceTestStub>();
+                builder.Services.AddTransient<ITeacherService, TeacherServiceTestStub>();
+            }
+
 
             var app = builder.Build();
 
