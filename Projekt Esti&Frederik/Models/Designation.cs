@@ -19,6 +19,9 @@ public partial class Designation
 
     public int? ExamId { get; set; }
 
+    //there should not be a single student for a designation as this is meant for teachers.
+    //public int StudentId { get; set; }
+
     [Required]
     [StringLength(100)]
     [Unicode(false)]

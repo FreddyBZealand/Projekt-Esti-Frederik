@@ -35,10 +35,10 @@ namespace Projekt_Esti_Frederik.Service
         //    .ToList();
         //}
 
-        public IEnumerable<Designation> GetDesignationTeacher(int TeacherId)
+        public IEnumerable<Designation> GetDesignationTeacher(int teacherId)
         {
             return context.Designations
-            .Where(d => d.TeacherId == TeacherId)
+            .Where(d => d.TeacherId == teacherId)
             .ToList();
         }
 

@@ -16,7 +16,7 @@ public partial class Teacher
     public int TeacherId { get; set; }
 
     [Required]
-    [StringLength(50)]
+    [StringLength(100)]
     [Unicode(false)]
     public string FirstName { get; set; }
 
@@ -34,7 +34,7 @@ public partial class Teacher
     [StringLength(100)]
     [Unicode(false)]
     public string Email { get; set; }
-
+    
     [InverseProperty("Teacher")]
     public virtual ICollection<Designation> Designations { get; set; } = new List<Designation>();
 }
