@@ -11,9 +11,9 @@ SET ClassName = 'DATO-ROS-BA-B25S'
 WHERE ClassID = 2;
 
 UPDATE Exams
-SET ExamName = 'DAT-RO-F-V25B' 
+SET ExamName = 'Datamitica Core Exam' 
 WHERE ExamID = 1;
 
 UPDATE Exams
-SET ExamName = 'DATO-ROS-BA-B25S' 
+SET ExamName = 'Datamitica Technical Assessment' 
 WHERE ExamID = 3;
