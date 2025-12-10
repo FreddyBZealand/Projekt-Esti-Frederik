@@ -37,7 +37,7 @@ create table Exams (
 	ReExamEndTime time not null,
 	constraint chk_EstimatedNumberStudents check (EstimatedNumberStudents > 0),
 	constraint chk_TypeOfExam check (TypeOfExam in ('E', 'I')),	
-	constraint chk_Supervision check ((Supervision = 1 and TypeOfSupervisor <> 'Yes') or (Supervision = 0 and TypeOfSupervisor = 'No')),
+	constraint chk_Supervision check ((Supervision = 1 and TypeOfSupervisor = 'Yes') or (Supervision = 0 and TypeOfSupervisor = 'No')),
 	constraint chk_ReExamSubmissionDate check (ExamSubmissionDate < ReExamSubmissionDate),
 	constraint chk_ExamDate check (ExamDate < ReExamDate),	
 	constraint chk_ExamTimes check (ExamStartTime < ExamEndTime),	
