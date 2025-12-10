@@ -34,16 +34,11 @@
                     <td> @item.TypeOfExam</td>
                     <td> @item.Supervision</td>
                     <td> @item.TypeOfSupervisor</td>
-                    <td> @item.EstimatedNumberStudents</td> @* Not giving a value (mabi need to provide DB whit students tabel and asing tose to a class) *@
+                    <td> @item.EstimatedNumberStudents</td>
                     <td> @item.ExamSubmissionDate</td>
                     <td> @item.ExamDate</td>
                     <td> @item.ReExamSubmissionDate</td>
                     <td> @item.ReExamDate</td>
-                    @* <td>
-                        <p>
-                            <a asp-page="/Exams/Exams" asp-route-id="@item.ClassId">Show exams</a>
-                        </p>
-                    </td> *@
                 </tr>
             }
         }
