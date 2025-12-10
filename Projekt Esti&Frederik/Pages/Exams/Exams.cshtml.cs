@@ -19,16 +19,16 @@ namespace Projekt_Esti_Frederik.Pages.Exams
 
         }
 
-        public void OnGet(int id)
+        public void OnGet(int? classId,int? teacherId)
         {
-            if (id == 0)
+            if (teacherId == null && classId == null)
             {
                 exams = examService.GetExam().ToList();
             }
 
-            else 
+            else if (teacherId != null)
             { 
-                IEnumerable<Designation> designations = designationService.GetDesignationTeacher(id);
+                IEnumerable<Designation> designations = designationService.GetDesignationTeacher((int) teacherId);
 
                 foreach (Designation d in designations)
                 {
@@ -42,6 +42,11 @@ namespace Projekt_Esti_Frederik.Pages.Exams
                         }
                     }
                 }
+            }
+
+            else if (classId != null)
+            {
+                exams = examService.GetExamByClassId((int)classId).ToList();
             }
         }
     }
