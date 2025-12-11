@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Projekt_Esti_Frederik.Models;
 using Projekt_Esti_Frederik.Service.Interface;
 
@@ -20,6 +21,11 @@ namespace Projekt_Esti_Frederik.Pages.Exams
             this.examService = examService;
             this.dBContext = dBContext;
             exam = new Exam();
+            //I added the folowing code so when we create an new exam it automatikly go tho the date of creating:
+            exam.ExamSubmissionDate = DateOnly.FromDateTime(DateTime.Now);
+            exam.ExamDate = DateOnly.FromDateTime(DateTime.Now);
+            exam.ReExamSubmissionDate = DateOnly.FromDateTime(DateTime.Now);
+            exam.ReExamDate = DateOnly.FromDateTime(DateTime.Now);
         }
 
         public void OnGet()
