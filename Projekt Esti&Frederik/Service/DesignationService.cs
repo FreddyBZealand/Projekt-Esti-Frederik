@@ -6,6 +6,11 @@ namespace Projekt_Esti_Frederik.Service
     public class DesignationService : IDesignationService
     {
         ExamPlannerDBContext context;
+        public DesignationService(ExamPlannerDBContext context)
+        {
+            this.context = context;
+        }
+
         public void AddDesignation(Designation designation)
         {
             context.Designations.Add(designation);

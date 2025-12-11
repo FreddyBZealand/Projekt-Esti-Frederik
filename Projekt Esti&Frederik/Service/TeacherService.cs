@@ -5,9 +5,8 @@ namespace Projekt_Esti_Frederik.Service
 {
     public class TeacherService : ITeacherService
     {
-         private readonly ExamPlannerDBContext context;
+        private readonly ExamPlannerDBContext context;
 
-        //Whas missing this construkter
         public TeacherService(ExamPlannerDBContext context) 
         { 
         this.context = context;

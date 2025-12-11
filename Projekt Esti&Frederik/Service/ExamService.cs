@@ -41,6 +41,11 @@ namespace Projekt_Esti_Frederik.Service
             .ToList();
         }
 
+        public Exam? GetExamByExamId(int examId)
+        {
+            return context.Exams.Where(e => e.ExamId == examId).FirstOrDefault();
+        }
+
 
         //We made a mistake, because there can be multiple designations for one exam, it is not possible to get exam by designation id, because the exam table does not have designation id as foreign key
         //public IEnumerable<Exam> GetExamByDesignationId(int designationId)

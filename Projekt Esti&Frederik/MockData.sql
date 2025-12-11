@@ -7,8 +7,8 @@ insert into Teachers (FirstName, LastName, Initials, Email) values
 ('Mark', 'Thomsen', 'MT', 'mark.thomsen@school.dk');
 
 insert into Classes (ClassName) values
-('C# Fundamentals'),
-('ASP.NET Core Web API'); 
+('DAT-RO-F-V25B'),
+('DATO-ROS-BA-B25S'); 
 
 insert into Exams (
   ClassID, ExamName, EstimatedNumberStudents, TypeOfExam, Supervision, TypeOfSupervisor,
