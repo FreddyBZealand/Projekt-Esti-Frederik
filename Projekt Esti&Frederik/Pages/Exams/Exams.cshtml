@@ -4,6 +4,10 @@
     ViewData["Title"] = "Exam Page";
 }
 
+<p>
+    <a asp-page="./CreateExam">Create new exam</a>
+</p>
+
 <h2>Exam Page</h2>
 
 <table class="table"> 
@@ -17,8 +21,12 @@
             <th>Estimat number of students</th>
             <th>Exam submission</th>
             <th>Exam</th>
+            <th>Exam start time</th>
+            <th>Exam end time</th>
             <th>Re-exam submission</th>
             <th>Re-exam</th>
+            <th>Re-exam start time</th>
+            <th>Re-exam end time</th>
         </tr>
     </thead>
 
@@ -37,8 +45,12 @@
                     <td> @item.EstimatedNumberStudents</td>
                     <td> @item.ExamSubmissionDate</td>
                     <td> @item.ExamDate</td>
+                    <td> @item.ExamStartTime</td>
+                    <td> @item.ExamEndTime</td>
                     <td> @item.ReExamSubmissionDate</td>
                     <td> @item.ReExamDate</td>
+                    <td> @item.ReExamStartTime</td>
+                    <td> @item.ReExamEndTime</td>
                 </tr>
             }
         }
