@@ -1,0 +1,117 @@
+﻿@page
+@model Projekt_Esti_Frederik.Pages.Exams.DeleteExamModel
+@{
+    ViewData["Title"] = "Delete Exam";
+}
+
+<h1>Delete Exam</h1>
+
+<h3>Are you sure you want to delete this exam?</h3>
+
+<div>
+    <h4>Exam Details</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Exam ID
+        </dt>
+        <dd class="col-sm-10">
+            @Model.exam.ExamId
+        </dd>
+
+        <dt class="col-sm-2">
+            Activity
+        </dt>
+        <dd class="col-sm-10">
+            @Model.exam.ExamName
+        </dd>
+
+        <dt class="col-sm-2">
+            Type of Exam
+        </dt>
+        <dd class="col-sm-10">
+            @Model.exam.TypeOfExam
+        </dd>
+
+        <dt class="col-sm-2">
+            Supervision
+        </dt>
+        <dd class="col-sm-10">
+            @Model.exam.Supervision
+        </dd>
+
+        <dt class="col-sm-2">
+            Supervisor
+        </dt>
+        <dd class="col-sm-10">
+            @Model.exam.TypeOfSupervisor
+        </dd>
+
+        <dt class="col-sm-2">
+            Estimated Number of Students
+        </dt>
+        <dd class="col-sm-10">
+            @Model.exam.EstimatedNumberStudents
+        </dd>
+
+        <dt class="col-sm-2">
+            Submission Date
+        <dd class="col-sm-10">
+            @Model.exam.ExamSubmissionDate
+            </dd>
+
+        <dt class="col-sm-2">
+            Exam Date
+        </dt>
+        <dd class="col-sm-10">
+            @Model.exam.ExamDate
+        </dd>
+
+        <dt class="col-sm-2">
+            Exam start time
+        </dt>
+        <dd class="col-sm-10">
+            @Model.exam.ExamStartTime
+        </dd>
+
+        <dt class="col-sm-2">
+            Exam end time
+        </dt>
+        <dd class="col-sm-10">
+            @Model.exam.ExamEndTime
+        </dd>
+
+        <dt class="col-sm-2">
+            Re submission date
+        </dt>
+        <dd class="col-sm-10">
+            @Model.exam.ReExamSubmissionDate
+        </dd>
+
+        <dt class="col-sm-2">
+            Re exam date
+        </dt>
+        <dd class="col-sm-10">
+            @Model.exam.ReExamDate
+        </dd>
+
+        <dt class="col-sm-2">
+            Re exam start time
+        </dt>
+        <dd class="col-sm-10">
+            @Model.exam.ReExamStartTime
+        </dd>
+
+        <dt class="col-sm-2">
+            Re exam end time
+        </dt>
+        <dd class="col-sm-10">
+            @Model.exam.ReExamEndTime
+        </dd>
+
+    </dl>
+    <form method="post">
+        <input type="hidden" asp-for="exam.ExamId" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-page="./Exams" class="btn btn-secondary">Cancel</a>
+    </form>

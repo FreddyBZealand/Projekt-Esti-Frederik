@@ -8,8 +8,10 @@ namespace Projekt_Esti_Frederik.Pages.Exams
     public class ExamModel : PageModel
     {
         public List<Exam> exams { get; set; }
+
         private IExamService examService;
         private IDesignationService designationService;
+
 
         public ExamModel(IExamService examService, IDesignationService designationService)
         {

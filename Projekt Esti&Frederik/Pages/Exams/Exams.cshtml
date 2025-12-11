@@ -51,6 +51,9 @@
                     <td> @item.ReExamDate</td>
                     <td> @item.ReExamStartTime</td>
                     <td> @item.ReExamEndTime</td>
+                    <td>
+                        <a asp-page="./EditExam" asp-route-id="@item.ExamId">Edit</a> |
+                        <a asp-page="./DeleteExam" asp-route-id="@item.ExamId">Delete</a>
                 </tr>
             }
         }
