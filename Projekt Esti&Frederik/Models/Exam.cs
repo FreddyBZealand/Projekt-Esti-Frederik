@@ -47,7 +47,6 @@ public partial class Exam
     public TimeOnly ExamEndTime { get; set; }
 
     public DateOnly ReExamSubmissionDate { get; set; }
-
     public DateOnly ReExamDate { get; set; }
 
     public TimeOnly ReExamStartTime { get; set; }
