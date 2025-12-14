@@ -1,106 +1,108 @@
 ﻿@page
 @model Projekt_Esti_Frederik.Pages.Exams.InfoExamModel
 @{
-    ViewData["Title"] = "Exam Info";
+    ViewData["Title"] = "Exam details";
 }
 
-<h1>Exam Info</h1>
+<h1 class="fw-bold text-center py-4 mb-4" style="font-size: 35px; color: #2a2a2a;">
+    <i class="bi bi-info-circle me-1" ></i> Exam details
+</h1>
 
 <div>
-    <h4>Exam Details</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
+        <dt class="col-sm-2" style="color: #3a3a3a;">
             Exam ID
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-10" >
             @Model.exam.ExamId
         </dd>
 
-        <dt class="col-sm-2">
+        <dt class="col-sm-2" style="color: #3a3a3a;">
             Activity
         </dt>
         <dd class="col-sm-10">
             @Model.exam.ExamName
         </dd>
 
-        <dt class="col-sm-2">
+        <dt class="col-sm-2" style="color: #3a3a3a;">
             Type of Exam
         </dt>
         <dd class="col-sm-10">
             @Model.exam.TypeOfExam
         </dd>
 
-        <dt class="col-sm-2">
+        <dt class="col-sm-2" style="color: #3a3a3a;">
             Supervision
         </dt>
         <dd class="col-sm-10">
             @Model.exam.Supervision
         </dd>
 
-        <dt class="col-sm-2">
+        <dt class="col-sm-2" style="color: #3a3a3a;">
             Supervisor
         </dt>
         <dd class="col-sm-10">
             @Model.exam.TypeOfSupervisor
         </dd>
 
-        <dt class="col-sm-2">
+        <dt class="col-sm-2" style="color: #3a3a3a;">
             Estimated Number of Students
         </dt>
         <dd class="col-sm-10">
             @Model.exam.EstimatedNumberStudents
         </dd>
 
-        <dt class="col-sm-2">
+        <dt class="col-sm-2" style="color: #3a3a3a;">
             Submission Date
+        </dt>
         <dd class="col-sm-10">
             @Model.exam.ExamSubmissionDate
         </dd>
 
-        <dt class="col-sm-2">
+        <dt class="col-sm-2" style="color: #3a3a3a;">
             Exam Date
         </dt>
         <dd class="col-sm-10">
             @Model.exam.ExamDate
         </dd>
 
-        <dt class="col-sm-2">
+        <dt class="col-sm-2" style="color: #3a3a3a;">
             Exam start time
         </dt>
         <dd class="col-sm-10">
             @Model.exam.ExamStartTime
         </dd>
 
-        <dt class="col-sm-2">
+        <dt class="col-sm-2" style="color: #3a3a3a;">
             Exam end time
         </dt>
         <dd class="col-sm-10">
             @Model.exam.ExamEndTime
         </dd>
 
-        <dt class="col-sm-2">
+        <dt class="col-sm-2" style="color: #3a3a3a;">
             Re submission date
         </dt>
         <dd class="col-sm-10">
             @Model.exam.ReExamSubmissionDate
         </dd>
 
-        <dt class="col-sm-2">
+        <dt class="col-sm-2" style="color: #3a3a3a;">
             Re exam date
         </dt>
         <dd class="col-sm-10">
             @Model.exam.ReExamDate
         </dd>
 
-        <dt class="col-sm-2">
+        <dt class="col-sm-2" style="color: #3a3a3a;">
             Re exam start time
         </dt>
         <dd class="col-sm-10">
             @Model.exam.ReExamStartTime
         </dd>
 
-        <dt class="col-sm-2">
+        <dt class="col-sm-2" style="color: #3a3a3a;">
             Re exam end time
         </dt>
         <dd class="col-sm-10">
@@ -108,4 +110,5 @@
         </dd>
     </dl>
 
-    <a asp-page="./Exams">Back to List</a>
+    <a asp-page="./Exams" class="btn btn-primary fw-semibold px-3 text-white exam-btn"
+       style="background-color:#4a90e2; border-color:#4a90e2;">Back to List</a>

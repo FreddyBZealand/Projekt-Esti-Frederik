@@ -1,34 +1,49 @@
 ﻿@page
 @model Projekt_Esti_Frederik.Pages.Classes.ClassesModel
 @{
+    ViewData["Title"] = "Classes Page";
 }
 
-<h2>Classes Page</h2>
+<h1 class="fw-bold text-center py-4 mb-4" style="font-size: 35px; color: #2a2a2a;">
+    <i class="bi bi-person-workspace me-2"></i> Classes page
+</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Class id</th>
-            <th>Class name</th>            
-        </tr>
-    </thead>
+<div class="row gy-4">
 
-    <tbody>
-
-        @if (Model != null)
+    @if (Model != null)
+    {
+        @foreach (Models.Class item in Model.classService)
         {
-            @foreach (var item in Model.classService)
-            {
-                <tr>
-                    <td> @item.ClassId </td>
-                    <td> @item.ClassName </td>
-                    <td>
-                        <p>
-                            <a asp-page="/Exams/Exams" asp-route-classid="@item.ClassId">Show exams</a>
-                        </p>
-                    </td>
-                </tr>
-            }
+            <div class="col-md-6">
+                <div class="teacher-card shadow-sm">
+
+                    <h5 class="fw-bold mb-3" style="color: #000;">
+                        @item.ClassName
+                    </h5>
+
+                    <div class="mb-2 d-flex" style="color: #3a3a3a;">
+                        <div class="fw-bold me-2" style="min-width: 140px;">Class id:</div>
+                        <div class="fw-bold">@item.ClassId</div>
+                    </div>
+                   
+
+                    <div class="d-flex">
+                        <a asp-page="/Exams/Exams" asp-route-teacherid="@item.ClassId"
+                           class="btn btn-primary btn-sm text-white exam-btn me-2"
+                           style="background-color:#4a90e2; border-color:#4a90e2;">
+                            <i class="bi bi-bookmarks-fill me-1"></i> Assigned exams
+                        </a>
+                    </div>
+                </div>
+            </div>
         }
-    </tbody>
-</table>
+    }
+</div>
+
+<div class="text-start mt-4">
+    <a asp-page="./CreateClass"
+       class="btn btn-primary fw-semibold px-3 text-white exam-btn"
+       style="background-color:#4a90e2; border-color:#4a90e2;">
+        <i class="bi bi-easel3-fill me-1"></i> Add class
+    </a>
+</div>
