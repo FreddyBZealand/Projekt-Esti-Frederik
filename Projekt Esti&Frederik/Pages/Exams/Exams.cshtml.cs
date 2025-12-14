@@ -18,7 +18,6 @@ namespace Projekt_Esti_Frederik.Pages.Exams
             exams = new List<Exam>();
             this.examService = examService;
             this.designationService = designationService;
-
         }
 
         public void OnGet(int? classId,int? teacherId)

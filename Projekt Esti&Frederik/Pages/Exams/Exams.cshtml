@@ -1,7 +1,7 @@
 ﻿@page
 @model Projekt_Esti_Frederik.Pages.Exams.ExamModel
 @{
-    ViewData["Title"] = "Exam Page";
+    ViewData["Title"] = "Exam page";
 }
 
 <h2 class="fw-bold text-center py-5 mb-5" style="font-size: 2rem; color: #2a2a2a;">
@@ -11,7 +11,7 @@
 <div class="row gy-4">
     @if (Model != null)
     {
-        @foreach (var item in Model.exams)
+        @foreach (Models.Exam item in Model.exams)
         {
             <div class="col-md-6">
                 <div class="exam-card shadow-sm">
@@ -53,10 +53,11 @@
                             <i class="bi bi-info-circle me-1"></i> Info
                         </a>
 
-                        <a asp-page="./EditExam" asp-route-id="@item.ExamId"
+                        <a asp-page="/Teachers/TeacherDesignation" asp-route-examId="@item.ExamId"
                            class="btn btn-secondary btn-sm text-white exam-btn me-2"
                            style="background-color:#6c757d; border-color:#6c757d;">
-                            <i class="bi bi-pencil-square me-1"></i> Edit
+                            <i class="bi bi-pencil-square me-1"></i> Assign teacher
+
                         </a>
 
                         <a asp-page="./DeleteExam" asp-route-id="@item.ExamId"

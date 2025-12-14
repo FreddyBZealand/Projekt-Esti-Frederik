@@ -53,3 +53,25 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     transform: translateY(-2px);
 }
+
+.teacher-card {
+    border: 2px solid #dcdcdc !important;
+    border-radius: 12px;
+    padding: 1.5rem;
+    background: #ffffff;
+    transition: all 0.25s ease;
+}
+
+    .teacher-card:hover {
+        border-color: #b5b5b5 !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        transform: translateY(-2px);
+    }
+
+teacher-card .role-options {
+    margin-bottom: 1.5rem; /* space between radios and button */
+}
+
+.teacher-card button {
+    margin-top: 0.5rem;
+}
