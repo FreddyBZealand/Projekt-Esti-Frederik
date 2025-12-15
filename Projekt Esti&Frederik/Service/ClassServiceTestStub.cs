@@ -47,5 +47,12 @@ namespace Projekt_Esti_Frederik.Service
         {
             
         }
+
+        Class? IClassService.GetClassById(int classId)
+        {
+            var classes = GetClass();
+            var context = new { Classes = classes };
+            return context.Classes.Where(c => c.ClassId == classId).FirstOrDefault();
+        }
     }
 }

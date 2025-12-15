@@ -41,6 +41,10 @@ namespace Projekt_Esti_Frederik.Service
 
         public void UpdateTeacher(Teacher teacher)
         { }
-        
+
+        Teacher? ITeacherService.GetTeacherById(int teacherId)
+        {
+            return new Teacher { TeacherId = 1, FirstName = "John", LastName = "Doe", Initials = "bla", Email = "..." };
+        }
     }
 }

@@ -32,7 +32,7 @@ namespace Projekt_Esti_Frederik.Service
             };
         }
 
-        public IEnumerable<Designation> GetDesignationTeacher(int TeacherId)
+        public IEnumerable<Designation> GetDesignationByTeacherId(int TeacherId)
         {
             return new List<Designation>
             {
@@ -42,6 +42,11 @@ namespace Projekt_Esti_Frederik.Service
 
         public void UpdateDesignation(Designation designation)
         {
+        }
+
+        public IEnumerable<Designation> GetDesignationByExamId(int examId)
+        {
+            throw new NotImplementedException();
         }
     }
 

@@ -19,10 +19,12 @@ namespace Projekt_Esti_Frederik.Service
 
         public void DeleteDesignation(int designationId)
         {
-            var existing = context.Designations.Find(designationId);
+            Designation existing = context.Designations.Find(designationId);
 
             if (existing == null)
+            {
                 throw new KeyNotFoundException($"Designation with ID {designationId} not found.");
+            }
 
             context.Designations.Remove(existing);
             context.SaveChanges();
@@ -33,28 +35,30 @@ namespace Projekt_Esti_Frederik.Service
             return context.Designations.ToList();
         }
 
-        //public IEnumerable<Designation> GetDesignationStudent(int StudentId)
-        //{
-        //    return context.Designations
-        //    .Where(d => d.StudentId == studentId)
-        //    .ToList();
-        //}
 
-        public IEnumerable<Designation> GetDesignationTeacher(int teacherId)
+        public IEnumerable<Designation> GetDesignationByTeacherId(int teacherId)
         {
             return context.Designations
             .Where(d => d.TeacherId == teacherId)
             .ToList();
         }
 
+        public IEnumerable<Designation> GetDesignationByExamId(int examId)
+        {
+            return context.Designations
+            .Where(d => d.ExamId == examId)
+            .ToList();
+        }
+
+
         public void UpdateDesignation(Designation designation)
         {
-            var existing = context.Designations.Find(designation.DesignationId);
+            Designation existing = context.Designations.Find(designation.DesignationId);
 
             if (existing == null)
-                throw new KeyNotFoundException(
-                    $"Designation with ID {designation.DesignationId} not found."
-                );
+            {
+                throw new KeyNotFoundException($"Designation with ID {designation.DesignationId} not found.");
+            }
 
             context.Entry(existing).CurrentValues.SetValues(designation);
             context.SaveChanges();
