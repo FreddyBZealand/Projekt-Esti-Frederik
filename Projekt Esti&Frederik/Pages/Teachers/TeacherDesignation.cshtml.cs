@@ -1,14 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Projekt_Esti_Frederik.Models;
-using Projekt_Esti_Frederik.Service;
 using Projekt_Esti_Frederik.Service.Interface;
 
 namespace Projekt_Esti_Frederik.Pages.Teachers
 {
     public class TeacherDesignationModel : PageModel
     {
-        public IEnumerable<Teacher> teachers { get; set; }
+        public List<Teacher> teachers { get; set; }
         public ITeacherService teacherService;
         public IExamService examService;
         public IDesignationService designationService;
@@ -23,8 +22,36 @@ namespace Projekt_Esti_Frederik.Pages.Teachers
 
         public void OnGet(int examId)
         {
-            teachers = teacherService.GetTeacher();            
+            teachers = teacherService.GetTeacher().ToList();
+            Exam examToAddTeacher = examService.GetExamByExamId(examId);            
+                        
             this.examId = examId;
+
+            foreach (Designation designation in designationService.GetDesignation()) 
+            {
+                Exam exam = examService.GetExamByExamId((int)designation.ExamId);
+
+                if (exam != null) 
+                {
+                    if (examToAddTeacher.ExamDate == exam.ExamDate) 
+                    {
+                        Teacher teacherToRemove = null;
+
+                        foreach(Teacher teacher in teachers) 
+                        {
+                            if (teacher.TeacherId == designation.TeacherId)
+                            {
+                                teacherToRemove = teacher;
+                            }
+                        }
+
+                        if(teacherToRemove != null)
+                        {
+                            teachers.Remove(teacherToRemove);
+                        }
+                    }
+                }                    
+            }           
         }
 
         public IActionResult OnPost(int teacherId, int examId, string TypeId)
@@ -39,6 +66,7 @@ namespace Projekt_Esti_Frederik.Pages.Teachers
             {
                 designation.DesignationRole = "Examiner";
             }
+
             else if (TypeId == "2")
             {
                 designation.DesignationRole = "Internal censor";

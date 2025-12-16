@@ -24,6 +24,7 @@ namespace Projekt_Esti_Frederik.Pages.Exams
             {
                 exam = e;
             }
+
             else
             {
                 exam = new Exam();

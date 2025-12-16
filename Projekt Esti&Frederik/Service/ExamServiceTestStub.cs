@@ -12,6 +12,7 @@ namespace Projekt_Esti_Frederik.Service
 
         public void DeleteExam(int examId)
         {
+
         }
 
         public IEnumerable<Exam> GetExam()
@@ -45,6 +46,7 @@ namespace Projekt_Esti_Frederik.Service
 
         public void UpdateExam(Exam exam)
         {
+
         }
     }
 }

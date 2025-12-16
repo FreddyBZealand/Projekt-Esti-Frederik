@@ -7,6 +7,7 @@ namespace Projekt_Esti_Frederik.Service.Interface
         IEnumerable<Teacher> GetTeacher();
         //IEnumerable<Teacher> GetTeacherByClassId(int classId);
         IEnumerable<Teacher> GetTeacherByDesignationId(int designationId);
+        Teacher? GetTeacherById(int teacherId);
 
         void AddTeacher(Teacher teacher);
         void UpdateTeacher(Teacher teacher);

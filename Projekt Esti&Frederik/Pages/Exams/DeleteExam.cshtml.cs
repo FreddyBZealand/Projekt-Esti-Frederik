@@ -9,20 +9,23 @@ namespace Projekt_Esti_Frederik.Pages.Exams
     {
         [BindProperty]
         public Exam exam { get; set; } 
-        private IExamService context;
+        private IExamService examService;
+        private IDesignationService designationService;
 
-        public DeleteExamModel(IExamService examService)
+        public DeleteExamModel(IExamService examService, IDesignationService designationService)
         {
-            context = examService;
+            this.examService = examService;
+            this.designationService = designationService;
         }
 
         public void OnGet(int id)
         {
-            Exam e = context.GetExamByExamId(id);
+            Exam e = examService.GetExamByExamId(id);
             if (e is not null)
             {
                 exam = e;
             }
+
             else
             {
                 exam = new Exam();
@@ -33,10 +36,15 @@ namespace Projekt_Esti_Frederik.Pages.Exams
         {
             if (exam is not null)
             {
-                var ex = context.GetExamByExamId(exam.ExamId);
+                foreach (Designation designation in designationService.GetDesignationByExamId(exam.ExamId)) 
+                {
+                    designationService.DeleteDesignation(designation.DesignationId);
+                }
+
+                Exam ex = examService.GetExamByExamId(exam.ExamId);
                 if (ex is not null)
                 {
-                    context.DeleteExam(ex.ExamId);
+                    examService.DeleteExam(ex.ExamId);
                 }
             }
 

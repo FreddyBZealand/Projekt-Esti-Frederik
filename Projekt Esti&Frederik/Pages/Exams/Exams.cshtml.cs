@@ -29,7 +29,7 @@ namespace Projekt_Esti_Frederik.Pages.Exams
 
             else if (teacherId != null)
             { 
-                IEnumerable<Designation> designations = designationService.GetDesignationTeacher((int) teacherId);
+                IEnumerable<Designation> designations = designationService.GetDesignationByTeacherId((int) teacherId);
 
                 foreach (Designation d in designations)
                 {

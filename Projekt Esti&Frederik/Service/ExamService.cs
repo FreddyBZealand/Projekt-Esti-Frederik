@@ -20,10 +20,12 @@ namespace Projekt_Esti_Frederik.Service
 
         public void DeleteExam(int examId)
         {
-            var existing = context.Exams.Find(examId);
+            Exam existing = context.Exams.Find(examId);
 
             if (existing == null)
+            {
                 throw new KeyNotFoundException($"Exam with ID {examId} not found.");
+            }
 
             context.Exams.Remove(existing);
             context.SaveChanges();
@@ -50,14 +52,14 @@ namespace Projekt_Esti_Frederik.Service
         //We made a mistake, because there can be multiple designations for one exam, it is not possible to get exam by designation id, because the exam table does not have designation id as foreign key
         //public IEnumerable<Exam> GetExamByDesignationId(int designationId)
         //{
-        //    return context.Exams
+        //    return examService.Exams
         //   .Where(e => e.DesignationId == designationId)
         //   .ToList();
         //}
 
         public void UpdateExam(Exam exam)
         {
-            var existing = context.Exams.Find(exam.ExamId);
+            Exam existing = context.Exams.Find(exam.ExamId);
 
             if (existing == null)
                 throw new KeyNotFoundException($"Exam with ID {exam.ExamId} not found.");

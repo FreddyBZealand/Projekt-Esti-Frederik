@@ -9,7 +9,7 @@ namespace Projekt_Esti_Frederik.Service
 
         public TeacherService(ExamPlannerDBContext context) 
         { 
-        this.context = context;
+            this.context = context;
         }
 
         public void AddTeacher(Teacher teacher)
@@ -20,10 +20,12 @@ namespace Projekt_Esti_Frederik.Service
 
         public void DeleteTeacher(int teacherId)
         {
-            var existing = context.Teachers.Find(teacherId);
+            Teacher existing = context.Teachers.Find(teacherId);
 
             if (existing == null)
+            {
                 throw new KeyNotFoundException($"Teacher with ID {teacherId} not found.");
+            }               
 
             context.Teachers.Remove(existing);
             context.SaveChanges();
@@ -37,10 +39,10 @@ namespace Projekt_Esti_Frederik.Service
         //We made a mistake, there is no reference between Class and Teacher, a teacher is not even assigned to a class but only to one to several exams.
         //public IEnumerable<Teacher> GetTeacherByClassId(int classId)
         //{
-        //    return context.Classes
+        //    return examService.Classes
         //    .Where(c => c.ClassId == classId)
         //    .Join(
-        //        context.Teachers,
+        //        examService.Teachers,
         //        c => c.TeacherId,
         //        t => t.TeacherId,
         //        (c, t) => t)
@@ -61,13 +63,20 @@ namespace Projekt_Esti_Frederik.Service
 
         public void UpdateTeacher(Teacher teacher)
         {
-            var existing = context.Teachers.Find(teacher.TeacherId);
+            Teacher existing = context.Teachers.Find(teacher.TeacherId);
 
             if (existing == null)
+            {
                 throw new KeyNotFoundException($"Teacher with ID {teacher.TeacherId} not found.");
+            }                
 
             context.Entry(existing).CurrentValues.SetValues(teacher);
             context.SaveChanges();
+        }
+
+        Teacher? ITeacherService.GetTeacherById(int teacherId)
+        {
+            return context.Teachers.Where(t => t.TeacherId == teacherId).FirstOrDefault();
         }
     }
 }

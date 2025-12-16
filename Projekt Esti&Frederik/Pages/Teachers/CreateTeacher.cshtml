@@ -8,3 +8,47 @@
     <i class="bi bi-person-plus me-2"></i> Add Teacher
 </h1>
 
+<div class="row">
+    <div class="col-md-6, fw-bold" style="color: #3a3a3a;">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mb-4">
+                <label asp-for="@Model.TheTeacher.FirstName" class="control-label"></label>
+                <input asp-for="@Model.TheTeacher.FirstName" class="form-control" />
+                <span asp-validation-for="@Model.TheTeacher.FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <label asp-for="@Model.TheTeacher.LastName" class="control-label"></label>
+                <input asp-for="@Model.TheTeacher.LastName" class="form-control" />
+                <span asp-validation-for="@Model.TheTeacher.LastName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <label asp-for="@Model.TheTeacher.Initials" class="control-label"></label>
+                <input asp-for="@Model.TheTeacher.Initials" class="form-control" />
+                <span asp-validation-for="@Model.TheTeacher.Initials" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <label asp-for="@Model.TheTeacher.Email" class="control-label"></label>
+                <input asp-for="@Model.TheTeacher.Email" class="form-control" />
+                <span asp-validation-for="@Model.TheTeacher.Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <button type="submit" value="Create" class="btn btn-primary fw-semibold px-3 text-white exam-btn"
+                        style="background-color:#4a90e2; border-color:#4a90e2;">
+                    <i class="bi bi-person-plus me-1"></i> Add new teacher
+                </button>
+
+                <button>
+                    <a asp-page="./Teachers" class="btn btn-secondary fw-semibold px-3 text-white exam-btn"
+                       style="background-color:#6c757d; border-color:#6c757d;">
+                        <i class="bi bi-arrow-left-circle me-1"></i> Back to list
+                    </a>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

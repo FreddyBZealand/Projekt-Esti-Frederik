@@ -50,9 +50,7 @@
             <div class="form-group mb-4">
                 <label asp-for="@Model.exam.Class" class="control-label"></label>
 
-                <select asp-for="@Model.exam.ClassId"
-                        class="form-control"
-                        asp-items="@Model.classOptions">
+                <select asp-for="@Model.exam.ClassId" class="form-control" asp-items="@Model.classOptions">
                     <option value="">-- Select a Class --</option>
                 </select>
 
@@ -92,13 +90,13 @@
 
             <div class="form-group mb-4">
                 <label asp-for="@Model.exam.ReExamSubmissionDate" class="control-label"></label>
-                <input asp-for="@Model.exam.ReExamSubmissionDate" class="form-control" />
+                <input type="date" asp-for="@Model.exam.ReExamSubmissionDate" class="form-control" />
                 <span asp-validation-for="@Model.exam.ReExamSubmissionDate" class="text-danger"></span>
             </div>
 
             <div class="form-group mb-4">
                 <label asp-for="@Model.exam.ReExamDate" class="control-label"></label>
-                <input asp-for="@Model.exam.ReExamDate" class="form-control" />
+                <input type="date" asp-for="@Model.exam.ReExamDate" class="form-control" />
                 <span asp-validation-for="@Model.exam.ReExamDate" class="text-danger"></span>
             </div>
 
@@ -119,9 +117,12 @@
                         style="background-color:#4a90e2; border-color:#4a90e2;">
                      <i class="bi bi-pencil-square me-1"></i> Create new exam
                 </button>
-                
-            </div>
-            
+
+                <a asp-page="./Exams" class="btn btn-secondary fw-semibold px-3 text-white exam-btn"
+                    style="background-color:#6c757d; border-color:#6c757d;">
+                    <i class="bi bi-arrow-left-circle me-1"></i> Back to list
+                </a>               
+            </div>            
         </form>
     </div>
 </div>
