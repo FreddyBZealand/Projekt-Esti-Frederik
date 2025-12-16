@@ -36,7 +36,6 @@ namespace Projekt_Esti_Frederik.Pages.Classes
 
             classService.AddClass(TheClass);
             return RedirectToPage("Classes");
-
         }  
     }
 }

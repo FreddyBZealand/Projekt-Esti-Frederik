@@ -22,6 +22,7 @@ namespace Projekt_Esti_Frederik
                 builder.Services.AddTransient<IDesignationService, DesignationService>();
                 builder.Services.AddTransient<ITeacherService, TeacherService>();
             }
+
             else
             {
                 builder.Services.AddTransient<IClassService, ClassServiceTestStub>();
@@ -29,7 +30,6 @@ namespace Projekt_Esti_Frederik
                 builder.Services.AddTransient<IDesignationService, DesignationServiceTestStub>();
                 builder.Services.AddTransient<ITeacherService, TeacherServiceTestStub>();
             }
-
 
             var app = builder.Build();
 

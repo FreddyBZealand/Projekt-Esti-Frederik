@@ -18,8 +18,8 @@
                 <div class="teacher-card shadow-sm">
 
                     <h5 class="fw-bold mb-3" style="color: #000;">
-                            @item.FirstName
-                            @item.LastName
+                        @item.FirstName
+                        @item.LastName
                     </h5>
 
                     <div class="mb-2 d-flex" style="color: #3a3a3a;">
@@ -35,7 +35,7 @@
                  <form method="post">
                     <div>
                         <button asp-route-TypeId="1" asp-route-teacherId=@item.TeacherId asp-route-examId=@Model.examId type="submit" class="btn btn-primary btn-sm text-white exam-btn me-2"
-                                style="background-color:#4a90e2; border-color:#4a90e2;"> Examiner
+                            style="background-color:#4a90e2; border-color:#4a90e2;"> Examiner
                         </button>
                     </div>
 
@@ -52,7 +52,7 @@
     <div class ="form-group mb-4">
         <a asp-page="/Exams/Exams" class="btn btn-secondary fw-semibold px-3 text-white exam-btn"
                style="background-color:#6c757d; border-color:#6c757d;">
-                <i class="bi bi-arrow-left-circle me-1"></i> Back to exam list
+               <i class="bi bi-arrow-left-circle me-1"></i> Back to exam list
         </a>
         
         <a asp-page="./Teachers" class="btn btn-secondary fw-semibold px-3 text-white exam-btn"

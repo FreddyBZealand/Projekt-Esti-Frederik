@@ -7,10 +7,12 @@ namespace Projekt_Esti_Frederik.Service
     {
         public void AddDesignation(Designation designation)
         {
+
         }
 
         public void DeleteDesignation(int designationId)
         {
+
         }
 
         public IEnumerable<Designation> GetDesignation()
@@ -42,6 +44,7 @@ namespace Projekt_Esti_Frederik.Service
 
         public void UpdateDesignation(Designation designation)
         {
+
         }
 
         public IEnumerable<Designation> GetDesignationByExamId(int examId)
@@ -49,5 +52,4 @@ namespace Projekt_Esti_Frederik.Service
             throw new NotImplementedException();
         }
     }
-
 }

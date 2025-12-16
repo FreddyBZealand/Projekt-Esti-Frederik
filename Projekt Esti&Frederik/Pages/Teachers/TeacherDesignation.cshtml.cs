@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Projekt_Esti_Frederik.Models;
-using Projekt_Esti_Frederik.Service;
 using Projekt_Esti_Frederik.Service.Interface;
 
 namespace Projekt_Esti_Frederik.Pages.Teachers
@@ -67,6 +66,7 @@ namespace Projekt_Esti_Frederik.Pages.Teachers
             {
                 designation.DesignationRole = "Examiner";
             }
+
             else if (TypeId == "2")
             {
                 designation.DesignationRole = "Internal censor";

@@ -2,8 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Projekt_Esti_Frederik.Models;
 using Projekt_Esti_Frederik.Service.Interface;
-using Projekt_Esti_Frederik.Service;
-
 namespace Projekt_Esti_Frederik.Pages.Teachers
 {
     public class CreateTeacherModel : PageModel
