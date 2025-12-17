@@ -27,7 +27,7 @@ public partial class ExamPlannerDBContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ExamPlannerDB;Integrated Security=True");
+        => optionsBuilder.UseSqlServer("Data Source=mssql15.unoeuro.com;Initial Catalog=buggo_dk_db_exam_planner_db;User ID=buggo_dk;Password=Rxmdc5efthzE2D4A3rGp;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False;Command Timeout=30");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

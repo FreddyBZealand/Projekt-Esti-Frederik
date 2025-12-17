@@ -10,6 +10,7 @@ namespace Projekt_Esti_Frederik.Models;
 
 public partial class Exam
 {
+    // Primary key for the exam record.
     [Key]
     [Column("ExamID")]
     public int ExamId { get; set; }
@@ -17,8 +18,7 @@ public partial class Exam
     [Column("ClassID")]
     public int? ClassId { get; set; }
 
-    //Not possible as there is several designations per exam
-    //public int DesignationId {  get; set; } 
+    // Name of the exam (required, max 100 chars).
     [Required]
     [StringLength(100)]
     [Unicode(false)]
@@ -31,7 +31,7 @@ public partial class Exam
     [Unicode(false)]
     public string TypeOfExam { get; set; }
 
-    public bool Supervision { get; set; }
+   public bool Supervision { get; set; }
 
     [Required]
     [StringLength(50)]
@@ -53,10 +53,12 @@ public partial class Exam
 
     public TimeOnly ReExamEndTime { get; set; }
 
+    // Foreign key and navigation property linking the exam to its class via ClassId.
     [ForeignKey("ClassId")]
     [InverseProperty("Exams")]
     public virtual Class Class { get; set; }
 
+    // Navigation property for related designations (e.g., assigned supervisors).
     [InverseProperty("Exam")]
     public virtual ICollection<Designation> Designations { get; set; } = new List<Designation>();
 }

@@ -1,4 +1,4 @@
-﻿use ExamPlannerDB;
+﻿use buggo_dk_db_exam_planner_db;
 
 
 drop table if exists Designations
