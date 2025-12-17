@@ -10,18 +10,17 @@ namespace Projekt_Esti_Frederik.Pages.Exams
     {
         [BindProperty]
         public Exam exam { get; set; }
-
-
         private IExamService examService;
         private IClassService classService;
         public List<SelectListItem> classOptions { get; set; }
 
+        // Constructor: sets default exam dates and loads class options.
         public CreateExamModel(IExamService examService, IClassService classService)
         {
             this.examService = examService;
             this.classService = classService;
             exam = new Exam();
-            //I added the folowing code so when we create an new exam it automatikly go tho the date of creating:
+
             exam.ExamSubmissionDate = DateOnly.FromDateTime(DateTime.Now);
             exam.ExamDate = DateOnly.FromDateTime(DateTime.Now);
             exam.ReExamSubmissionDate = DateOnly.FromDateTime(DateTime.Now);
@@ -35,6 +34,7 @@ namespace Projekt_Esti_Frederik.Pages.Exams
                 .ToList() ?? new List<SelectListItem>();
         }
 
+        // Detects date/time overlaps between a new exam (or re-exam) and existing exams for the same class.
         private bool checkExamTimeOverlap(Exam newExam) {
             if (newExam.ClassId == null) 
             {
@@ -73,6 +73,7 @@ namespace Projekt_Esti_Frederik.Pages.Exams
             return false;
         }
 
+        // Checks whether two time intervals overlap.
         private bool checkTimeOverlap(TimeOnly start1, TimeOnly end1, TimeOnly start2, TimeOnly end2) 
         {
             return (start1 < end2) && (start2 < end1);
@@ -83,6 +84,7 @@ namespace Projekt_Esti_Frederik.Pages.Exams
 
         }
 
+        // The final boss of validation before an exam is allowed to exist.
         public IActionResult OnPost()
         {
             if (exam.ExamName == null) 
