@@ -14,6 +14,7 @@ namespace Projekt_Esti_Frederik
             builder.Services.AddRazorPages();
             builder.Services.AddDbContext<ExamPlannerDBContext>();
 
+            // Dependency injection testing.
             // True for real services, false for test stubs
             if (true)
             {
