@@ -15,7 +15,7 @@ namespace Projekt_Esti_Frederik
             builder.Services.AddDbContext<ExamPlannerDBContext>();
 
             // Dependency injection testing.
-            // True for real services, false for test stubs
+            // True for real services, false for test stubs.
             if (true)
             {
                 builder.Services.AddTransient<IClassService, ClassService>();
