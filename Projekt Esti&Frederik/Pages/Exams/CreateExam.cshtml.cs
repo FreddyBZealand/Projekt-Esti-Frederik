@@ -11,14 +11,12 @@ namespace Projekt_Esti_Frederik.Pages.Exams
         [BindProperty]
         public Exam exam { get; set; }
         private IExamService examService;
-        private IClassService classService;
         public List<SelectListItem> classOptions { get; set; }
 
         // Constructor: sets default exam dates and loads class options.
         public CreateExamModel(IExamService examService, IClassService classService)
         {
             this.examService = examService;
-            this.classService = classService;
             exam = new Exam();
 
             exam.ExamSubmissionDate = DateOnly.FromDateTime(DateTime.Now);
